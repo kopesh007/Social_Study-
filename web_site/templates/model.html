@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+    <main class="pdf-page">
+      <section class="pdf-hero reveal">
+        <span class="eyebrow">PDF library</span>
+        <h1>Subject wise Model PDF and Question Papers</h1>
+
+      </section>
+      {% if data%}
+
+      <section class="subject-pdf-card reveal">
+        {% regroup data by subject as cat_data %}
+        {%for cat in cat_data%}
+        <div class="subject-header">
+          <div>
+            <span class="eyebrow">Subject name</span>
+            <h2>{{cat.grouper}}</h2>
+          </div>
+          <span class="pdf-count">4 PDFs</span>
+        </div>
+
+        {%for i in cat.list %}
+        <div class="pdf-link-list">
+          <a class="pdf-link" href="{{i.file.url}}" target="_blank">
+            <span class="pdf-icon">PDF</span>
+            <div>
+              <strong>{{i.topic}}</strong>
+              <small>{{i.contain}}</small>
+            </div>
+          </a>
+
+         
+        </div>
+        {% endfor %}
+        {% endfor %}
+      </section>
+      {% endif %}
+    </main>
+
+{% endblock %}

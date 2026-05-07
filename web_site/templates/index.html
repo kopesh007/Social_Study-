@@ -1,0 +1,114 @@
+
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Question papers, PDFs and exam help</span>
+          <h1>Study resources for students in one smart place.</h1>
+          <p>
+            Find question papers, important questions, PDF notes, important
+            topics, and teacher recommendations quickly from a clean student
+            homepage.
+          </p>
+
+        </div>
+
+        <div class="hero-animation reveal" aria-label="Animated study materials">
+          <div class="orbit"></div>
+          <div class="resource-card paper-card">
+            <span>PDF</span>
+            <strong>Question Paper</strong>
+            <small>Previous year set</small>
+          </div>
+          <div class="resource-card topic-card">
+            <span>TOPIC</span>
+            <strong>High Weightage</strong>
+            <small>Exam focused</small>
+          </div>
+          <div class="resource-card question-card">
+            <span>Q&A</span>
+            <strong>Important Questions</strong>
+            <small>Practice first</small>
+          </div>
+          <div class="center-badge">Study</div>
+        </div>
+      </section>
+
+      <section class="study-section" id="study">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Clickable study boxes</span>
+          <h2>Open what you need fast</h2>
+          <p>
+            These attractive resource boxes connect you to your question
+            papers, PDF files, notes, and student material pages.
+          </p>
+        </div>
+
+        <div class="box-grid">
+          <a class="study-box reveal" href="{% url 'web_site:pdf' %}">
+            <span class="box-number">01</span>
+            <h3>Important Questions & Topics</h3>
+            <p>Practice the most expected questions & answers before exams.</p>
+            <strong>Open questions</strong>
+          </a>
+
+          <a class="study-box reveal" href="{% url 'web_site:model_QA' %}">
+            <span class="box-number">02</span>
+            <h3>Previous questions & Models</h3>
+            <p>Previous question papers and questions for model test </p>
+            <strong>View topics</strong>
+          </a>
+
+          <a class="study-box reveal" href="#recommendation">
+            <span class="box-number">03</span>
+            <h3>Recommendation & Suggestions </h3>
+            <p>Get suggested PDFs, notes, and resources for study. or If you want access </p>
+            <strong>See recommendations</strong>
+          </a>
+        </div>
+      </section>
+
+      <section class="about-section" id="about">
+        <div class="about-copy reveal">
+          <span class="eyebrow">About this platform</span>
+          <h2>Built for students who want simple access.</h2>
+          <p>
+            This homepage is designed for a student website where learners can
+            quickly reach question papers, PDFs, important notes, and exam
+            preparation content without confusion.
+          </p>
+        </div>
+
+        <div class="quick-list reveal">
+          <div>
+            <strong>Question papers</strong>
+            <span>Upload and link previous exam papers by subject.</span>
+          </div>
+          <div>
+            <strong>PDF notes</strong>
+            <span>Keep downloadable notes, chapters, and revision files.</span>
+          </div>
+          <div>
+            <strong>Exam focus</strong>
+            <span>Highlight important questions and topics clearly.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <h2>Need study material or support?</h2>
+        <a class="hero-button light" href="mailto:kopesh@example.com">Contact Kopesh</a>
+      </section>
+
+      <section class="bottom-bar" id="bar" aria-label="Student Hub bar section">
+        <span>Resources</span>
+        <span>Assignments</span>
+        <span>Practice</span>
+        <span>Results</span>
+      </section>
+    </main>
+
+{% endblock %}
