@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<section class="contact-page">
+  <div class="contact-header">
+    <p class="tag">Contact Us</p>
+    <h1>Get in touch with Kopesh Study</h1>
+    <p>
+      Send your questions, PDF requests, important topics, or study material
+      recommendations.
+    </p>
+  </div>
+
+  <div class="contact-container">
+    <div class="contact-info">
+      <div class="info-card">
+        <span>01</span>
+        <div>
+          <h2>Name</h2>
+          <p>Kopesh Study Support</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <span>02</span>
+        <div>
+          <h2>Contact</h2>
+          <p>+91 98765 43210</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <span>03</span>
+        <div>
+          <h2>Email</h2>
+          <p>kopesh@example.com</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrapper">
+      {% if success %}
+        <div class="success-box reveal visible">
+          <strong>Success!</strong>
+          <p>Thank you for your recommendation. We will review it shortly!</p>
+        </div>
+      {% endif %}
+
+      {% if form.errors %}
+        <div class="error-box reveal visible">
+          <strong>Validation Error</strong>
+          <p>Please check the fields below and try again.</p>
+        </div>
+      {% endif %}
+
+      <form class="contact-form" method="POST">
+        {% csrf_token %}
+        <h2>Recommendation Section</h2>
+
+        <div class="form-group">
+          <label for="{{ form.name.id_for_label }}">Your Name</label>
+          <input type="text" 
+                 name="name" 
+                 id="{{ form.name.id_for_label }}" 
+                 placeholder="Enter your name" 
+                 value="{{ form.name.value|default:'' }}"
+                 class="{% if form.name.errors %}input-error{% endif %}">
+          {% for error in form.name.errors %}
+            <span class="field-error">{{ error }}</span>
+          {% endfor %}
+        </div>
+
+        <div class="form-group">
+          <label for="{{ form.email.id_for_label }}">Email</label>
+          <input type="email" 
+                 name="email" 
+                 id="{{ form.email.id_for_label }}" 
+                 placeholder="Enter your email" 
+                 value="{{ form.email.value|default:'' }}"
+                 class="{% if form.email.errors %}input-error{% endif %}">
+          {% for error in form.email.errors %}
+            <span class="field-error">{{ error }}</span>
+          {% endfor %}
+        </div>
+
+        <div class="form-group">
+          <label for="{{ form.recom.id_for_label }}">Recommendation</label>
+          <textarea name="recom" 
+                    id="{{ form.recom.id_for_label }}" 
+                    placeholder="Suggest questions, topics, PDFs, or notes"
+                    class="{% if form.recom.errors %}input-error{% endif %}">{{ form.recom.value|default:'' }}</textarea>
+          {% for error in form.recom.errors %}
+            <span class="field-error">{{ error }}</span>
+          {% endfor %}
+        </div>
+
+        <button type="submit">Send Recommendation</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

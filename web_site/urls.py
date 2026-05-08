@@ -7,6 +7,7 @@ app_name='web_site'
 urlpatterns=[
     path("",views.index,name="home"),
     path("important_QA/",views.pdf,name="pdf"),
-    path("model_QA/",views.model_Q,name="model_QA")
+    path("model_QA/",views.model_Q,name="model_QA"),
+    path("contact/",views.con,name="contact")
 
 ]
