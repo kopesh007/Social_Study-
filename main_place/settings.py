@@ -9,8 +9,11 @@ https://docs.djangoproject.com/en/6.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
+# pyrefly: ignore [missing-import]
 import dj_database_url
 from pathlib import Path
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,11 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'web_site',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -117,6 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT=BASE_DIR/'staticfiles'
 
 STATICFILES_DIRS=[BASE_DIR/"web_site"/"static",
 ]
@@ -124,3 +131,12 @@ STATICFILES_DIRS=[BASE_DIR/"web_site"/"static",
 MEDIA_URL='/media/'
 MEDIA_ROOT=BASE_DIR/'media'
 
+CLOUDINARY_STORAGE={
+    'CLOUD_NAME':'dxyctwtyq',
+    'API_KEY':'376639294772798',
+    'API_SECRET':'GVvZd0LXcZ2_WNepa5qBhlgTMbQ',
+    'RESOURCE_TYPE':'raw',
+}
+
+STORAGES={'default':{"BACKEND":"cloudinary_storage.storage.MediaCloudinaryStorage"},
+        'staticfiles':{"BACKEND":"whitenoise.storage.CompressedManifestStaticFilesStorage"}}

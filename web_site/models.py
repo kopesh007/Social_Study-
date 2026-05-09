@@ -5,7 +5,7 @@ class Pdfs(models.Model):
     subject=models.CharField(max_length=50)
     topic=models.CharField(max_length=200)
     contain=models.CharField(max_length=300)
-    file=models.FileField(upload_to='pdf/')
+    file=models.FileField()
 
     def __str__(self):
         return f"{self.subject} --> {self.topic}"
