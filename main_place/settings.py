@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-wi=$&$uff-%qw=c29yv3)=vjfiyglbo4v6q$wvr(q6hcf^7n#l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -61,7 +61,7 @@ ROOT_URLCONF = 'main_place.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -138,5 +138,5 @@ CLOUDINARY_STORAGE={
     'RESOURCE_TYPE':'raw',
 }
 
-STORAGES={'default':{"BACKEND":"cloudinary_storage.storage.MediaCloudinaryStorage"},
+STORAGES={'default':{"BACKEND":"cloudinary_storage.storage.RawMediaCloudinaryStorage"},
         'staticfiles':{"BACKEND":"whitenoise.storage.CompressedManifestStaticFilesStorage"}}

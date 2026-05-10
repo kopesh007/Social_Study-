@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 - Page Not Found</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      color: #172033;
+      background: linear-gradient(135deg, #eef4ff, #f8fbff);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .error-card {
+      width: min(620px, 100%);
+      padding: 45px 35px;
+      text-align: center;
+      border-radius: 20px;
+      background: #ffffff;
+      box-shadow: 0 24px 60px rgba(23, 32, 51, 0.14);
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .error-code {
+      display: inline-block;
+      padding: 14px 30px;
+      margin-bottom: 24px;
+      border-radius: 18px;
+      color: #ffffff;
+      background: linear-gradient(135deg, #2563eb, #06b6d4);
+      font-size: 60px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      animation: float 3s ease-in-out infinite alternate;
+    }
+
+    .tag {
+      color: #2563eb;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 14px;
+    }
+
+    p {
+      color: #667085;
+      font-size: 17px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .actions a {
+      padding: 14px 22px;
+      border-radius: 12px;
+      background: #2563eb;
+      color: #ffffff;
+      font-weight: 800;
+      text-decoration: none;
+      transition: 0.25s;
+    }
+
+    .actions a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(37, 99, 235, 0.25);
+    }
+
+    .actions .secondary {
+      background: #eef4ff;
+      color: #2563eb;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(-10px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .error-card {
+        padding: 35px 22px;
+      }
+
+      .error-code {
+        font-size: 46px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="error-card">
+    <div class="error-code">404</div>
+
+    <div class="tag">Page Not Found</div>
+
+    <h1>Oops! This page is missing</h1>
+
+    <p>
+      The page you are looking for may have been moved, deleted, or is
+      temporarily unavailable.
+    </p>
+
+    <div class="actions">
+      <a href="/">Back to Home</a>
+      <a href="contact.html" class="secondary">Contact Support</a>
+    </div>
+  </main>
+</body>
+</html>

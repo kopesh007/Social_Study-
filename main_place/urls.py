@@ -24,3 +24,5 @@ urlpatterns = [
     path("",include("web_site.urls")),
 ]
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+handler404 = "main_place.views.not_found"
+
