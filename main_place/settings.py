@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'main_place.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASE_URL="postgresql://mydb_amcw_user:T5vYBLAUECh22HN4E1JB1mwiRwL4laHE@dpg-d7ee56cvikkc73enoqb0-a.oregon-postgres.render.com/mydb_amcw"
+DATABASE_URL="postgresql://kopesh:0vG8BYB9bsTaHVRyvUuirBRokpHZeqeR@dpg-d85kj86q1p3s738dfc0g-a.oregon-postgres.render.com/postgre_db_2"
 
 DATABASES = {
     'default':dj_database_url.parse(DATABASE_URL, ssl_require=True)
