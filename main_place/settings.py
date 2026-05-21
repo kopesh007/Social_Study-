@@ -14,6 +14,9 @@ import dj_database_url
 from pathlib import Path
 
 
+import os 
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-wi=$&$uff-%qw=c29yv3)=vjfiyglbo4v6q$wvr(q6hcf^7n#l'
+SECRET_KEY =os.getenv("SK")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -80,10 +83,9 @@ WSGI_APPLICATION = 'main_place.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASE_URL="postgresql://kopesh:0vG8BYB9bsTaHVRyvUuirBRokpHZeqeR@dpg-d85kj86q1p3s738dfc0g-a.oregon-postgres.render.com/postgre_db_2"
 
 DATABASES = {
-    'default':dj_database_url.parse(DATABASE_URL, ssl_require=True)
+    'default':dj_database_url.parse(os.getenv("DB_url"), ssl_require=True)
     }
 
 
